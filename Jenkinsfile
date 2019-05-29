@@ -7,7 +7,7 @@ pipeline
 	{
 		steps
 		{
-			echo 'Building'
+			mvn compile
 		}
 	}
 
@@ -15,7 +15,7 @@ pipeline
 	{
 		steps
 		{
-			echo 'Testing'
+			mvn test
 		}
 	}
 
