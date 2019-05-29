@@ -7,7 +7,8 @@ pipeline
 	{
 		steps
 		{
-			mvn compile
+			
+			sh "mvn compile"
 		}
 	}
 
@@ -15,7 +16,7 @@ pipeline
 	{
 		steps
 		{
-			mvn test
+			sh "mvn test"
 		}
 	}
 
