@@ -1,13 +1,16 @@
 pipeline
 {
-   node{}
+   node
+   {
+   	echo 'Hi'
+   }
    stages 
    {
    	stage('Build')
 	{
 		steps
 		{
-			echo "Building"
+			echo 'Building'
 		}
 	}
 
@@ -15,7 +18,7 @@ pipeline
 	{
 		steps
 		{
-			echo "Testing"
+			echo 'Testing'
 		}
 	}
 
@@ -23,7 +26,7 @@ pipeline
 	{
 		steps
 		{
-			echo "Deploy"
+			echo 'Deploy'
 		}
 	}
 	
