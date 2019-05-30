@@ -19,16 +19,17 @@ node
 	{
 		sh "${mvncmd} package"
 	}
-
-
 	stage('CreateDockerImage')
 	{
-		echo "Create the Docker image"
+		sh "docker build -t amenon/simple-java-maven-app:1.0 ."			
 	}
 
-	stage('RollOutTheNewDockerImage')
+	stage('PushDockerBuild')
 	{
-		echo "Rollout with Kubernetes !!!!"
+		withCredentials([usernameColonPassword(credentialsId: 'ac576d5b-aa1d-4578-9c85-348483972daf', variable: 'dockerhubcreds')]) {
+		sh "docker login adi_menon@yahoo.com -p ${dockerhubcreds}"
+		}
+		sh "docker push amenon/simple-java-maven-app:1.0"
 	}
    
 }
