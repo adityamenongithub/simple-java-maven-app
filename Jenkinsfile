@@ -33,7 +33,6 @@ pipeline
 
 	stage('CreateDockerImage')
 	{
-		#ssh to the another server and create a docker image
 		steps
 		{
 			echo "Create the Docker image"
@@ -42,7 +41,6 @@ pipeline
 
 	stage('RollOutTheNewDockerImage')
 	{
-		#Code for kubernetes to deploy the new code to all the docker environments
 		echo "Rollout with Kubernetes !!!!"
 
 	}
