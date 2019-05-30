@@ -7,12 +7,12 @@ node
 	{
 		mvnhome = tool name: 'maven-3', type: 'maven' 
 		mvncmd = "${mvnhome}/bin/mvn"	
-		sh "echo 'Hi'"	
+		sh "${mvncmd} compile"	
 	}
 
 	stage('UnitTest')
 	{
-		sh "${mvncmd} compile"	
+		sh "${mvncmd} test"	
 	}
 
 	stage('CreateArtifact')
