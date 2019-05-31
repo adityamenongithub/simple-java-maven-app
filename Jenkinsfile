@@ -1,5 +1,6 @@
 def mvnhome
 def mvncmd
+ 
 node
 {
 	
@@ -26,10 +27,11 @@ node
 
 	stage('PushDockerBuild')
 	{
-		withCredentials([usernameColonPassword(credentialsId: 'ac576d5b-aa1d-4578-9c85-348483972daf', variable: 'dockerhubcreds')]) {
-		sh "docker login adi_menon@yahoo.com -p ${dockerhubcreds}"
-		}
-		sh "docker push amenon/simple-java-maven-app:1.0"
+	    withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpassword')]) {
+            
+            sh "docker login -u amenon -p ${dockerhubpassword}"
+        }
+        sh "docker push amenon/simple-java-maven-app:1.0"
 	}
    
 }
